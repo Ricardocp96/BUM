@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Login from './Screens /Login'
 import homescreen from './Screens /homescreen';
+import register from './Screens /Rejister';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ThemeProvider } from "react-native-rapi-ui";
@@ -14,28 +15,38 @@ const globalScreen={
 
 
 }
+
+const authenticatir =()=> {
+  this.state = {
+    jwt: '',
+  }
+
+}
 export default function App() {
  return(
+  //TODO
+//rap this in an auth container 
+
+
+
 
   <NavigationContainer>
+
+
 <ThemeProvider>
 
 <Stack.Navigator
-
+ 
 
 screenOptions={globalScreen}>
 
 <Stack.Screen     name = "Login" component={Login} />
 <Stack.Screen     name = "Home" component={homescreen} />
+<Stack.Screen     name = "Register" component={register}/>
 
 </Stack.Navigator>
 
-
-
 </ThemeProvider>
-
-
-
 
 
   </NavigationContainer>
