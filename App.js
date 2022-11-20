@@ -11,6 +11,9 @@ import { ThemeProvider } from "react-native-rapi-ui";
 
 
 const Stack = createNativeStackNavigator();
+
+
+
 const globalScreen={
 
 

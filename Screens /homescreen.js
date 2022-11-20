@@ -8,9 +8,9 @@ import results from '../Components/results';
 import treatment from '../Components/treatment';
 import journal from '../Components/journal';
 import profile from '../Components/profile';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 
@@ -40,7 +40,7 @@ export default function App() {
           }
 
            
-            return <Ionicons name={iconName} size={size} color={color} />;
+          return <Ionicons name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: 'blue',
           tabBarInactiveTintColor: 'gray',
