@@ -49,7 +49,7 @@ export default function App() {
         <Tab.Screen name="Journal" component={journal} />
         <Tab.Screen name="Results" component={results} />
      
-       <Tab.Screen name="Treatment"   component={profile}/>
+       <Tab.Screen name="Profile"   component={profile}/>
        <Tab.Screen name="Dashboard"   component={dashboard}/>
       </Tab.Navigator>
       </View>
