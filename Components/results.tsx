@@ -35,54 +35,45 @@ export default function ProfileScreen() {
         contentContainerStyle={styles.contentContainer}
       >
         <View style={styles.getStartedContainer}>
-          <Text style={styles.getStartedText}>Today's Mood</Text>
+          <Text style={styles.getStartedText}>How do you feel </Text>
           <TextInput
             style={styles.textInput}
             mode="outlined"
-            label="Are you Happy or sad"
+            label="Share your mood"
             value={name}
             onChangeText={(text) => setName(text)}
           />
 
-          <TextInput
-            style={styles.textInput}
-            mode="outlined"
-            label="What happened today"
-            value={age}
-            onChangeText={(text) => setAge(text)}
-            secureTextEntry={true}
-          />
+          
           <Text style={styles.describe}>
-            Describe your feelings briefly
-          </Text>
-          <TextInput
-            style={styles.textInput}
-            mode="outlined"
-            label="Describe moods, mental health"
-            value={previousMentalHealth}
-            onChangeText={(text) => setPreviousMentalHealth(text)}
-            secureTextEntry={true}
-          />
-          <Text style={styles.describe}>
-           Are you interacting with people normally 
+          Good 🙂
           </Text>
           <Switch
             onValueChange={() => toggleSwitch(setSupportNetwork)}
             value={supportNetwork}
           />
 
-          <Text style={styles.describe}>Are you angry?</Text>
+          <Text style={styles.describe}>Very Bad 😭</Text>
           <Switch
             onValueChange={() => toggleSwitch(setBreastfeeding)}
             value={breastfeeding}
           />
 
-          <Text style={styles.describe}>Did you share your feelings with anyone</Text>
+          <Text style={styles.describe}>Very Good 😀</Text>
           <Switch
             onValueChange={() => toggleSwitch(setPartner)}
             value={partner}
           />
-
+ <Text style={styles.describe}>Neutral 😐</Text>
+          <Switch
+            onValueChange={() => toggleSwitch(setPartner)}
+            value={partner}
+          />
+          <Text style={styles.describe}>Bad 😕 </Text>
+          <Switch
+            onValueChange={() => toggleSwitch(setPartner)}
+            value={partner}
+          />
           <Button
             style={styles.button}
             mode="contained"
@@ -90,7 +81,7 @@ export default function ProfileScreen() {
               console.log("submit", supportNetwork, breastfeeding, partner)
             }
           >
-            Create My Profile!
+            Share my mood 
           </Button>
         </View>
       </ScrollView>

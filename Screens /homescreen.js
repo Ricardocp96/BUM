@@ -16,11 +16,12 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
 
-export default function App() {
+export default function App({route}) {
+
   return (
    
       <View style={styles.container}>
-       
+        
         <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
@@ -52,6 +53,7 @@ export default function App() {
        <Tab.Screen name="Profile"   component={profile}/>
        <Tab.Screen name="Dashboard"   component={dashboard}/>
       </Tab.Navigator>
+    
       </View>
       
   

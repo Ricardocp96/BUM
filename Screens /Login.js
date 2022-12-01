@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { StatusBar } from "expo-status-bar";
 
+import axios from 'axios';
+import { Logs } from 'expo'
 import {
     ScrollView,
     TouchableOpacity,
@@ -18,13 +19,45 @@ import {
     themeColor,
   } from "react-native-rapi-ui";
 
+  
   export default function ({ navigation }) {
     const { isDarkmode, setTheme } = useTheme();
-    const [phone, setPhone] = useState("");
+    const [mobile, setPhone] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
-  
-  
+    const [status, setStatus] = useState(false);
+    Logs.enableExpoCliLogging()
+    async function  auth_api  (){ 
+      setLoading(true);
+     const sender = await axios.post('https://5f04-41-59-198-26.eu.ngrok.io/api/user/login', {
+        mobile: mobile,
+        password:password
+
+       })
+       .then(() => navigation.navigate("Home",{
+        paramKey: mobile
+       }))
+      
+       //If response is in json then in success
+       .then((responseJson) => {
+         //Success
+         
+         if(!sender) 
+         setLoading(false);
+        
+       })
+       //If response is not in json then in error
+       .catch((error) => {
+         //Error
+         //const message= "something went wrong try again"
+         setLoading(false);
+         alert(JSON.stringify(error));
+         console.error(error);
+       });
+   };
+      
+      
+    
   return (
     <KeyboardAvoidingView behavior="height" enabled style={{ flex: 1 }}>
       <Layout>
@@ -41,6 +74,7 @@ import {
               backgroundColor: isDarkmode ? "#17171E" : themeColor.white100,
             }}
           >
+            
             <Image
               resizeMode="contain"
               style={{
@@ -72,7 +106,7 @@ import {
             <TextInput
               containerStyle={{ marginTop: 15 }}
               placeholder="Phone number "
-              value={phone}
+              value={mobile}
               autoCapitalize="none"
               autoCompleteType="off"
               autoCorrect={false}
@@ -94,7 +128,13 @@ import {
             <Button
               text={loading ? "Loading" : "Continue"}
               onPress={() => {
-                navigation.replace("Home");
+                 //auth from server side 
+                
+                auth_api();
+                
+               
+
+
               }}
               style={{
                 marginTop: 20,
@@ -113,6 +153,8 @@ import {
               <Text size="md">Don't have an account?</Text>
               <TouchableOpacity
                 onPress={() => {
+                
+
                   navigation.navigate("Register");
                 }}
               >
@@ -176,5 +218,4 @@ import {
   );
 }
 
-
-
+  

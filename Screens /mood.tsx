@@ -2,17 +2,9 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, ScrollView, Switch } from "react-native";
 import { Button, TextInput } from "react-native-paper";
 
-// Name, age, sex, race,
-// Baby’s birthday
-// Rate the birth experience (joyful - traumatic)
-// Do you have a supportive partner
-// Do you have a support system (family, moms group, etc.)
-// Enter the phone numbers and emails of one to two people who we can text or email when you’ve been having a hard time.
-// When I’m stressed, these things help me not be stressed
-// Socioeconomic status
-// Breastfeeding
 
-export default function ProfileScreen() {
+
+export default function App() {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [previousMentalHealth, setPreviousMentalHealth] = useState("");
@@ -98,7 +90,7 @@ export default function ProfileScreen() {
               console.log("submit", supportNetwork, breastfeeding, partner)
             }
           >
-            Create My Profile!
+            Save
           </Button>
         </View>
       </ScrollView>

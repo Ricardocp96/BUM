@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { RootStackParamList } from '../types';
 import { StackScreenProps } from '@react-navigation/stack';
 import { Button, Card, Title, Paragraph } from 'react-native-paper';
@@ -35,7 +35,7 @@ export default function PositivityToolBox({
           <Text style={styles.getStartedText}>Student mental health</Text>
           <TouchableOpacity
             style={styles.touchable}
-            onPress={() => navigation.navigate('Affirmation')}
+            onPress={() => navigation.navigate('Register')}
           >
             <Card style={styles.purpleCard}>
               <View style={styles.cardContainer}>
@@ -69,7 +69,7 @@ export default function PositivityToolBox({
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.touchable}
-            onPress={() => navigation.navigate('Resources')}
+            onPress={() => navigation.navigate('Mood')}
           >
             <Card style={styles.orangeCard}>
               <View style={styles.cardContainer}>
@@ -86,7 +86,7 @@ export default function PositivityToolBox({
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.touchable}
-            onPress={() => console.log('laughing')}
+            onPress={() => navigation.navigate('Mood')}
           >
             <Card style={styles.greenCard}>
               <View style={styles.cardContainer}>

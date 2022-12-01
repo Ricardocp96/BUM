@@ -5,12 +5,13 @@ import { Button, Card, Title, Paragraph } from 'react-native-paper';
 import CardColors from '../constants/CardColors';
 import Constants from 'expo-constants';
 import LovingItSvg from '../assets/undraw_svgs/LovingItSvg';
-import TextEditor from '../Components/TextEditor'
+
 
 import {
   StyleSheet,
   Text,
   View,
+ 
   ScrollView,
   TouchableOpacity,
   Switch,
@@ -24,10 +25,15 @@ import {
 
 } from "react-native-rapi-ui";
 
+// see if we can get the value 
 
 
 const App = () => {
   const [phone, setPhone] = useState("");
+
+
+
+
   return (
   
     <Card style={styles.purpleCard}>
@@ -54,9 +60,9 @@ const App = () => {
 />
        
     </View>
-   
+
   </Card>
- 
+
 
   );
 };
