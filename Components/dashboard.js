@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
 
-const App = () => {
+const App = ({route}) => {
   return (
     <Text>
-        This is the dashboard page 🗓
+        {route.params.paramKey}
     </Text>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-
+import DropDownPicker from 'react-native-dropdown-picker'
 import axios from 'axios';
+import Constants from 'expo-constants';
 import { Logs } from 'expo'
 import {
     ScrollView,
@@ -8,6 +9,7 @@ import {
     View,
     KeyboardAvoidingView,
     Image,
+    StyleSheet,
   } from "react-native";
 
   import {
@@ -17,6 +19,9 @@ import {
     Button,
     useTheme,
     themeColor,
+    Picker,
+    Section,
+    SectionContent,
   } from "react-native-rapi-ui";
 
   
@@ -25,21 +30,27 @@ import {
     const [mobile, setPhone] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
-    const [status, setStatus] = useState(false);
+    const [pickerValue, setPickerValue] = React.useState(null);
+    const items = [
+        { label: 'Adult', value: 'STD' },
+        { label: 'Student', value: 'TEE' },
+       
+    ];
     Logs.enableExpoCliLogging()
     async function  auth_api  (){ 
       setLoading(true);
-     const sender = await axios.post('https://5f04-41-59-198-26.eu.ngrok.io/api/user/login', {
+     const sender = await axios.post('http://54.197.36.210:3000/api/user/login', {
         mobile: mobile,
         password:password
 
        })
-       .then(() => navigation.navigate("Home",{
-        paramKey: mobile
+       .then(() =>navigation.reset({
+        index: 0,
+        paramKey: mobile,
+        routes: [{ name: 'Home' }],
        }))
-      
        //If response is in json then in success
-       .then((responseJson) => {
+       .then(() => {
          //Success
          
          if(!sender) 
@@ -51,8 +62,8 @@ import {
          //Error
          //const message= "something went wrong try again"
          setLoading(false);
-         alert(JSON.stringify(error));
-         console.error(error);
+         alert(JSON.stringify("something went wrong try again"));
+    
        });
    };
       
@@ -102,6 +113,20 @@ import {
             >
               Login
             </Text>
+            <Section style={{ marginHorizontal: -18, marginTop: 20 }}>
+            <SectionContent>
+                <View>
+                    <Text style={{ marginBottom: 10 }}>Picker</Text>
+                    <Picker
+                        items={items}
+                        value={pickerValue}
+                        placeholder="choose Account type"
+                        onValueChange={(val) => setPickerValue(val)}
+                    />
+                </View>
+            </SectionContent>
+        </Section>
+          
             <Text>Phone number</Text>
             <TextInput
               containerStyle={{ marginTop: 15 }}
@@ -218,4 +243,3 @@ import {
   );
 }
 
-  

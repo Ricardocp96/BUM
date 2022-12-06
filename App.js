@@ -13,9 +13,7 @@ import Mood from './Screens /Mood'
 const Stack = createNativeStackNavigator();
 
 
-
 const globalScreen={
-
 
 }
 
@@ -29,8 +27,6 @@ export default function App() {
  return(
   //TODO
 //rap this in an auth container 
-
-
 
 
   <NavigationContainer>

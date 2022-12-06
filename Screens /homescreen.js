@@ -19,7 +19,7 @@ const Tab = createBottomTabNavigator();
 export default function App({route}) {
 
   return (
-   
+
       <View style={styles.container}>
         
         <Tab.Navigator
@@ -47,11 +47,24 @@ export default function App({route}) {
           tabBarInactiveTintColor: 'gray',
         })}
       >
-        <Tab.Screen name="Journal" component={journal} />
-        <Tab.Screen name="Results" component={results} />
+        <Tab.Screen name="Journal"
+         
+         component={journal}
+         
+        
+        />
+        <Tab.Screen name="Results" component={results}
+      
+      
+        />
      
-       <Tab.Screen name="Profile"   component={profile}/>
-       <Tab.Screen name="Dashboard"   component={dashboard}/>
+       <Tab.Screen name="Profile"   component={profile}
+     
+       
+       />
+       <Tab.Screen name="Dashboard"   component={dashboard}
+      
+       />
       </Tab.Navigator>
     
       </View>

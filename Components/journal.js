@@ -58,6 +58,7 @@ const App = () => {
  keyboardType="email-address"
  onChangeText={(text) => setPhone(text)}
 />
+
        
     </View>
 
