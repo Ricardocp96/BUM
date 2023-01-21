@@ -4,12 +4,12 @@ import {View, SafeAreaView, Text, StyleSheet} from 'react-native';
 
 import dashboard from '../Components/dashboard';
 import Mood from '../Components/Mood';
-import { MaterialIcons } from '@expo/vector-icons'; 
+
 import journal from '../Components/journal';
 import profile from '../Components/profile';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import result from '@expo/vector-icons/result';
 import { UserContext } from '../constants/UserContext';
 
 
@@ -30,11 +30,11 @@ console.log(route.params.params.mobile)
 
             if (route.name === 'Journal') {
               iconName = focused
-                ? 'journal'
-                : 'journal';
-      
+                ? 'ios-home'
+                : 'ios-home-outline';
+                
             } else if (route.name === 'Mood') {
-              iconName = focused ?'body' : 'body';
+              iconName = focused ?'ios-planet' : 'ios-planet';
             }else if (route.name === 'Treatment') {
               iconName = focused ? 'ios-chatbubbles' : 'ios-chatbubbles';
             }
@@ -43,7 +43,7 @@ console.log(route.params.params.mobile)
           }
 
            
-          return <Ionicons name={iconName} size={size} color={color} />;
+          return <result name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: 'orange',
           tabBarInactiveTintColor: 'gray',

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DropDownPicker from 'react-native-dropdown-picker'
 import axios from 'axios';
 import Constants from 'expo-constants';
+
 import { Logs } from 'expo'
 import {
     ScrollView,
@@ -44,12 +45,15 @@ import {
         password:password
 
        })
-       .then(() =>navigation.reset({
-        index: 0,
-        paramKey: mobile,
-        routes: [{ name: 'Home' }],
+       .then(() => navigation.replace("Home",{
+       
+        screen:"Home",
+        params: {mobile}
+      
+   
        }))
-       //If response is in json then in success
+
+
        .then(() => {
          //Success
          

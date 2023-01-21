@@ -69,10 +69,10 @@ export default function ({ navigation }) {
             >
               Register
             </Text>
-            <Text>Email</Text>
+            <Text>Phone</Text>
             <TextInput
               containerStyle={{ marginTop: 15 }}
-              placeholder="Enter your email"
+              placeholder="Enter your phone"
               value={email}
               autoCapitalize="none"
               autoCompleteType="off"
@@ -80,32 +80,24 @@ export default function ({ navigation }) {
               keyboardType="email-address"
               onChangeText={(text) => setEmail(text)}
             />
-<Text>Username</Text>
-<TextInput
+
+
+
+
+
+          
+                 <Text style={{ marginTop: 15 }}>password</Text>
+            <TextInput
               containerStyle={{ marginTop: 15 }}
-              placeholder="Enter your username"
-              value={email}
+              placeholder="Enter your password"
+              value={password}
               autoCapitalize="none"
               autoCompleteType="off"
               autoCorrect={false}
-              keyboardType="email-address"
-              onChangeText={(text) => setEmail(text)}
+              secureTextEntry={true}
+              onChangeText={(text) => setPassword(text)}
             />
-
-<Text>Account Type</Text>
-<TextInput
-              containerStyle={{ marginTop: 15 }}
-              placeholder="Student or staff"
-              value={email}
-              autoCapitalize="none"
-              autoCompleteType="off"
-              autoCorrect={false}
-              keyboardType="email-address"
-              onChangeText={(text) => setEmail(text)}
-            />
-
-
-            <Text style={{ marginTop: 15 }}>Password</Text>
+                   <Text style={{ marginTop: 15 }}>Repeat-password</Text>
             <TextInput
               containerStyle={{ marginTop: 15 }}
               placeholder="Enter your password"

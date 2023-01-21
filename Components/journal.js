@@ -1,10 +1,11 @@
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Colors from '../constants/Colors'
 import { Button, Card, Title, Paragraph } from 'react-native-paper';
 import CardColors from '../constants/CardColors';
 import Constants from 'expo-constants';
 import LovingItSvg from '../assets/undraw_svgs/LovingItSvg';
+import { UserContext } from "../constants/UserContext";
 
 
 import {
@@ -25,14 +26,13 @@ import {
 
 } from "react-native-rapi-ui";
 
-// see if we can get the value 
 
 
-const App = () => {
+
+const App = ({route}) => {
   const [phone, setPhone] = useState("");
-
-
-
+  const usr = useContext(UserContext);
+  
 
   return (
   
@@ -59,7 +59,7 @@ const App = () => {
  onChangeText={(text) => setPhone(text)}
 />
 
-       
+<Text>{usr}</Text>
     </View>
 
   </Card>

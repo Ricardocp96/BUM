@@ -20,10 +20,11 @@ import FeelingHappySvg from '../assets/undraw_svgs/FeelingHappySvg';
 import FlowersSvg from '../assets/undraw_svgs/FlowersSvg';
 import NatureBenefitsSvg from '../assets/undraw_svgs/NatureBenefits';
 import Constants from 'expo-constants';
+import { Value } from 'react-native-reanimated';
 
 
 export default function PositivityToolBox({
-  navigation,
+  navigation,route
 }: StackScreenProps<RootStackParamList, 'PositivityToolBox'>) {
   return (
     <SafeAreaView style={styles.container}>
@@ -47,6 +48,7 @@ export default function PositivityToolBox({
                   subtitle="Tell us how you feel"
                   style={styles.cardTitle}
                 ></Card.Title>
+
               </View>
             </Card>
           </TouchableOpacity>
@@ -54,7 +56,7 @@ export default function PositivityToolBox({
             style={styles.touchable}
             onPress={() => navigation.navigate('Mindfulness')}
           >
-            <Card style={styles.pinkCard}>
+            <Card style={styles.purpleCard}>
               <View style={styles.cardContainer}>
                 <Card.Content style={styles.cardContent}>
                   <MeditatingSvg />
@@ -71,7 +73,7 @@ export default function PositivityToolBox({
             style={styles.touchable}
             onPress={() => navigation.navigate('Mood')}
           >
-            <Card style={styles.orangeCard}>
+            <Card style={styles.purpleCard}>
               <View style={styles.cardContainer}>
                 <Card.Content style={styles.cardContent}>
                   <BreathingSvg />
@@ -88,7 +90,7 @@ export default function PositivityToolBox({
             style={styles.touchable}
             onPress={() => navigation.navigate('Mood')}
           >
-            <Card style={styles.greenCard}>
+            <Card style={styles.purpleCard}>
               <View style={styles.cardContainer}>
                 <Card.Content style={styles.cardContent}>
                   <FeelingHappySvg />
@@ -105,7 +107,7 @@ export default function PositivityToolBox({
             style={styles.touchable}
             onPress={() => console.log('visualization')}
           >
-            <Card style={styles.yellowCard}>
+            <Card style={styles.purpleCard}>
               <View style={styles.cardContainer}>
                 <Card.Content style={styles.cardContent}>
                   <FlowersSvg />
@@ -122,7 +124,7 @@ export default function PositivityToolBox({
             style={styles.touchable}
             onPress={() => console.log('moving')}
           >
-            <Card style={styles.blueCard}>
+            <Card style={styles.orangeCard}>
               <View style={styles.cardContainer}>
                 <Card.Content style={styles.cardContent}>
                   <NatureBenefitsSvg />
@@ -135,6 +137,7 @@ export default function PositivityToolBox({
               </View>
             </Card>
           </TouchableOpacity>
+          <Text></Text>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -155,7 +158,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     paddingTop: 15,
     paddingBottom: 15,
-    backgroundColor: Colors.light.background,
+    backgroundColor: CardColors.orange
   },
   getStartedContainer: {
     justifyContent: 'center',
