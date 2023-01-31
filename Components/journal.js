@@ -8,11 +8,12 @@ import LovingItSvg from '../assets/undraw_svgs/LovingItSvg';
 import { UserContext } from "../constants/UserContext";
 
 
+
 import {
   StyleSheet,
   Text,
   View,
- 
+ Image,
   ScrollView,
   TouchableOpacity,
   Switch,
@@ -29,6 +30,7 @@ import {
 
 
 
+
 const App = ({route}) => {
   const [phone, setPhone] = useState("");
   const usr = useContext(UserContext);
@@ -36,37 +38,30 @@ const App = ({route}) => {
 
   return (
   
-    <Card style={styles.purpleCard}>
-    <View style={styles.cardContainer}>
    
-      <Card.Content style={styles.cardContent}>
-        <LovingItSvg />
-      </Card.Content>
+     
+<View style={styles.container} >
 
-      <Card.Title
-        title="Journal"
-        subtitle="Write your thoughts"
-        style={styles.cardTitle}
-      ></Card.Title>
-        <TextInput
- containerStyle={{ marginTop: 15 }}
- placeholder="write down your thoughts "
- value={phone}
- autoCapitalize="none"
- autoCompleteType="off"
- autoCorrect={false}
- keyboardType="email-address"
- onChangeText={(text) => setPhone(text)}
-/>
+<Image 
+              resizeMode="contain"
+              style={
+              styles.backgroundImage
+                
+              }
+              
+              source={require("./river_new.png")}
+              
+            />
 
-<Text>{usr}</Text>
-    </View>
-
-  </Card>
-
-
+<Text  style={{
+                marginLeft:355,
+                transform: [{ translateY: -435, }],
+               
+              }}   > Sad </Text>
+</View>
   );
-};
+  
+}
 
 
 const styles = StyleSheet.create({
@@ -99,6 +94,14 @@ const styles = StyleSheet.create({
   touchable: {
     paddingTop: 30,
   },
+
+  container: {
+    flex: 1,
+},
+backgroundImage: {
+    flex: 1,
+    resizeMode: 'stretch', // or 'stretch'
+},
   cardContainer: {
     width: '100%',
     flex: 1,
@@ -171,7 +174,13 @@ const styles = StyleSheet.create({
     color: "#312921",
     marginBottom: 10,
   },
-
+  position: {
+    position:'absolute',
+    right:-60,
+    height: 250,
+    width: 200,
+   
+   },
   htmlBoxStyle: {
     height: 200,
     width: 330,
@@ -236,7 +245,9 @@ const styles = StyleSheet.create({
     elevation: 4,
     fontSize: 20,
   },
-
+container:{
+flex:1,
+},
   textButtonStyle: {
     fontSize: 18,
     fontWeight: "600",

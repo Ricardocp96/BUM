@@ -1,34 +1,40 @@
 {
   "expo": {
-    "name": "bum",
+    "name": "咘呣",
     "slug": "bum",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splashsc.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/42e9dbc1-93e4-4117-be88-2af912e1bb54"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
     },
     "android": {
+      "package": "com.ricardo96.bum",
+      "versionCode": 1,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/logo.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.ricardo96.bum"
+      "runtimeVersion": "1.0.0"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/splashsc.png"
     },
     "extra": {
       "eas": {
