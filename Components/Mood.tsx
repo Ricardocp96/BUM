@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, ScrollView,  Image,TouchableOpacity  } from "react-native";
+import { StyleSheet, Text, View, ScrollView,  Image,TouchableOpacity,Alert  } from "react-native";
 import { Button, TextInput } from "react-native-paper";
 import { Dialog } from 'react-native-simple-dialogs';
 
@@ -71,13 +71,20 @@ export default function ProfileScreen() {
 
 <TouchableOpacity   onPress={() => {
                 //auth from server side 
-               
-             console.log("im sad")
-    
-              
+                const createTwoButtonAlert = () =>
+                Alert.alert('你现在感到难过', '提交你的心情进行分析', [
+                  {
+                    text: 'Cancel',
+                    onPress: () => console.log('Cancel Pressed'),
+                    style: 'cancel',
+                  },
+                  {text: 'OK', onPress: () => console.log('OK Pressed')},
+                ]);
 
-
+                createTwoButtonAlert()
              }} >
+
+             
           <Image 
               resizeMode="contain"
               style={{
@@ -89,6 +96,24 @@ export default function ProfileScreen() {
               
             />
           </TouchableOpacity>
+<TouchableOpacity    
+  onPress={() => {
+    //auth from server side 
+    const createTwoButtonAlert = () =>
+    Alert.alert('你现在感觉很好', '提交你的心情进行分析', [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {text: 'OK', onPress: () => console.log('OK Pressed')},
+    ]);
+
+    createTwoButtonAlert()
+ }} >
+
+
+
 
           <Image 
               resizeMode="contain"
@@ -100,21 +125,51 @@ export default function ProfileScreen() {
               source={require("./verygoodbear.png")}
             />
             
-            
+            </TouchableOpacity>     
            
+<TouchableOpacity
 
 
-            <Image 
+onPress={() => {
+  //auth from server side 
+  const createTwoButtonAlert = () =>
+  Alert.alert('你现在感觉很好', '提交你的心情进行分析', [
+    {
+      text: 'Cancel',
+      onPress: () => console.log('Cancel Pressed'),
+      style: 'cancel',
+    },
+    {text: 'OK', onPress: () => console.log('OK Pressed')},
+  ]);
+
+  createTwoButtonAlert()
+}}
+>
+
+<Image 
                
-              style={{
-                height: 120,
-                width: 120,
-                transform: [{ translateY: -184 }] 
-               
-              }}
-              source={require("./happyimg.png")}
-            />      
-  
+               style={{
+                 height: 120,
+                 width: 120,
+                 transform: [{ translateY: -184 }] 
+                
+               }}
+               source={require("./happyimg.png")}
+             />   
+ 
+
+
+</TouchableOpacity>
+
+         
+ 
+
+
+
+
+
+
+
   <Image 
               resizeMode="contain"
               style={{
@@ -150,8 +205,26 @@ export default function ProfileScreen() {
                 transform: [{ translateY: -365, }]
               }}   >Neutral </Text>     
 
+<TouchableOpacity
 
- <Image   
+onPress={() => {
+  //auth from server side 
+  const createTwoButtonAlert = () =>
+  Alert.alert('你目前感觉中立', '提交你的心情进行分析', [
+    {
+      text: 'Cancel',
+      onPress: () => console.log('Cancel Pressed'),
+      style: 'cancel',
+    },
+    {text: 'OK', onPress: () => console.log('OK Pressed')},
+  ]);
+
+  createTwoButtonAlert()
+}}
+
+
+>
+<Image   
 
 resizeMode="contain"
               style={{
@@ -162,6 +235,9 @@ resizeMode="contain"
               }}
               source={require("./neutralbear.png")}
             />
+
+</TouchableOpacity>
+ 
 
             
         </View>

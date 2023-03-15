@@ -4,7 +4,7 @@ import { Text, StyleSheet } from 'react-native';
 const App = ({route}) => {
   return (
     <Text>
-        {route.params.paramKey}
+  Support Comming soon 
     </Text>
   );
 };

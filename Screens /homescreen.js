@@ -5,7 +5,7 @@ import {View, SafeAreaView, Text, StyleSheet} from 'react-native';
 import dashboard from '../Components/dashboard';
 import Mood from '../Components/Mood';
 import { MaterialIcons } from '@expo/vector-icons'; 
-import journal from '../Components/journal';
+import score from '../Components/score';
 import profile from '../Components/profile';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -28,17 +28,17 @@ console.log(route.params.params.mobile)
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
 
-            if (route.name === 'Journal') {
+            if (route.name === 'score') {
               iconName = focused
-                ? 'journal'
-                : 'journal';
+                ? 'star'
+                : 'star';
       
             } else if (route.name === 'Mood') {
               iconName = focused ?'body' : 'body';
-            }else if (route.name === 'Treatment') {
-              iconName = focused ? 'ios-chatbubbles' : 'ios-chatbubbles';
+            }else if (route.name === 'Analytics') {
+              iconName = focused ? 'analytics-outline' : 'analytics-outline';
             }
-          else if (route.name === 'Dashboard') {
+          else if (route.name === 'Help') {
             iconName = focused ? 'ios-chatbubbles' : 'ios-chatbubbles';
           }
 
@@ -50,9 +50,9 @@ console.log(route.params.params.mobile)
         })}
       >
 
-        <Tab.Screen name="Journal"
+        <Tab.Screen name="score"
          
-         component={journal}
+         component={score}
         
         
         />
@@ -63,11 +63,11 @@ console.log(route.params.params.mobile)
       
         />
      
-       <Tab.Screen name="Profile"   component={profile}
+       <Tab.Screen name="Analytics"   component={profile}
      
        
        />
-       <Tab.Screen name="Dashboard"   component={dashboard}
+       <Tab.Screen name="Help"   component={dashboard}
     
        />
        

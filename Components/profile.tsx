@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { RootStackParamList } from '../types';
-import { StackScreenProps } from '@react-navigation/stack';
-import { Button, Card, Title, Paragraph } from 'react-native-paper';
+import { Dimensions } from "react-native";
+
+
 import {
   StyleSheet,
   Text,
@@ -11,229 +11,80 @@ import {
   Switch,
   SafeAreaView,
 } from 'react-native';
-import Colors from '../constants/Colors';
-import CardColors from '../constants/CardColors';
-import BreathingSvg from '../assets/undraw_svgs/BreathingSvg';
-import LovingItSvg from '../assets/undraw_svgs/LovingItSvg';
-import MeditatingSvg from '../assets/undraw_svgs/MeditatingSvg';
-import FeelingHappySvg from '../assets/undraw_svgs/FeelingHappySvg';
-import FlowersSvg from '../assets/undraw_svgs/FlowersSvg';
-import NatureBenefitsSvg from '../assets/undraw_svgs/NatureBenefits';
-import Constants from 'expo-constants';
-import { Value } from 'react-native-reanimated';
+import {
+  LineChart,
+  BarChart,
+  PieChart,
+  ProgressChart,
+  ContributionGraph,
+  StackedBarChart
+} from "react-native-chart-kit";
+
+const profile =() =>{
+  const chartConfig = {
+    backgroundGradientFrom: "#1E2923",
+    backgroundGradientFromOpacity: 0,
+    backgroundGradientTo: "#08130D",
+    backgroundGradientToOpacity: 0.5,
+    color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+    strokeWidth: 2, // optional, default 3
+    barPercentage: 0.5,
+    useShadowColorFromDataset: false // optional
+  };
+
+  const screenWidth = Dimensions.get("window").width;
 
 
-export default function PositivityToolBox({
-  navigation,route
-}: StackScreenProps<RootStackParamList, 'PositivityToolBox'>) {
-  return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.contentContainer}
-      >
-        <View style={styles.getStartedContainer}>
-          <Text style={styles.getStartedText}>Student mental health</Text>
-          <TouchableOpacity
-            style={styles.touchable}
-            onPress={() => navigation.navigate('Register')}
-          >
-            <Card style={styles.purpleCard}>
-              <View style={styles.cardContainer}>
-                <Card.Content style={styles.cardContent}>
-                  <LovingItSvg />
-                </Card.Content>
-                <Card.Title
-                  title="Feelings"
-                  subtitle="Tell us how you feel"
-                  style={styles.cardTitle}
-                ></Card.Title>
 
-              </View>
-            </Card>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.touchable}
-            onPress={() => navigation.navigate('Mindfulness')}
-          >
-            <Card style={styles.purpleCard}>
-              <View style={styles.cardContainer}>
-                <Card.Content style={styles.cardContent}>
-                  <MeditatingSvg />
-                </Card.Content>
-                <Card.Title
-                  title="Journal"
-                  subtitle="Write your thoughts "
-                  style={styles.cardTitle}
-                ></Card.Title>
-              </View>
-            </Card>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.touchable}
-            onPress={() => navigation.navigate('Mood')}
-          >
-            <Card style={styles.purpleCard}>
-              <View style={styles.cardContainer}>
-                <Card.Content style={styles.cardContent}>
-                  <BreathingSvg />
-                </Card.Content>
-                <Card.Title
-                  title="Todays Mood"
-                  subtitle="Hows the day "
-                  style={styles.cardTitle}
-                ></Card.Title>
-              </View>
-            </Card>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.touchable}
-            onPress={() => navigation.navigate('Mood')}
-          >
-            <Card style={styles.purpleCard}>
-              <View style={styles.cardContainer}>
-                <Card.Content style={styles.cardContent}>
-                  <FeelingHappySvg />
-                </Card.Content>
-                <Card.Title
-                  title="Relaxation"
-                  subtitle="Tips on good mood"
-                  style={styles.cardTitle}
-                ></Card.Title>
-              </View>
-            </Card>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.touchable}
-            onPress={() => console.log('visualization')}
-          >
-            <Card style={styles.purpleCard}>
-              <View style={styles.cardContainer}>
-                <Card.Content style={styles.cardContent}>
-                  <FlowersSvg />
-                </Card.Content>
-                <Card.Title
-                  title="Dashboard"
-                  subtitle="View Results"
-                  style={styles.cardTitle}
-                ></Card.Title>
-              </View>
-            </Card>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.touchable}
-            onPress={() => console.log('moving')}
-          >
-            <Card style={styles.orangeCard}>
-              <View style={styles.cardContainer}>
-                <Card.Content style={styles.cardContent}>
-                  <NatureBenefitsSvg />
-                </Card.Content>
-                <Card.Title
-                  title="Moving"
-                  subtitle="Some text here"
-                  style={styles.cardTitle}
-                ></Card.Title>
-              </View>
-            </Card>
-          </TouchableOpacity>
-          <Text></Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+  return(
+<View>
+
+  <LineChart
+    data={{
+      labels: ["January", "February", "March", "April", "May", "June"],
+      datasets: [
+        {
+          data: [
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100
+          ]
+        }
+      ]
+    }}
+    width={Dimensions.get("window").width} // from react-native
+    height={220}
+    yAxisLabel="$"
+    yAxisSuffix="k"
+    yAxisInterval={1} // optional, defaults to 1
+    chartConfig={{
+      backgroundColor: "#e26a00",
+      backgroundGradientFrom: "#fb8c00",
+      backgroundGradientTo: "#ffa726",
+      decimalPlaces: 2, // optional, defaults to 2dp
+      color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+      labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+      style: {
+        borderRadius: 16
+      },
+      propsForDots: {
+        r: "6",
+        strokeWidth: "2",
+        stroke: "#ffa726"
+      }
+    }}
+    bezier
+    style={{
+      marginVertical: 8,
+      borderRadius: 16
+    }}
+  />
+</View>
+
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    paddingBottom: 15,
-    backgroundColor: Colors.light.background,
-    marginTop: Constants.statusBarHeight,
-  },
-  scrollView: {
-    marginHorizontal: 20,
-  },
-  contentContainer: {
-    paddingTop: 15,
-    paddingBottom: 15,
-    backgroundColor: CardColors.orange
-  },
-  getStartedContainer: {
-    justifyContent: 'center',
-    marginHorizontal: 30,
-  },
-  getStartedText: {
-    fontSize: 24,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-    marginBottom: 16,
-  },
-  touchable: {
-    paddingTop: 30,
-  },
-  cardContainer: {
-    width: '100%',
-    flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'flex-start',
-  },
-  cardTitle: {
-    width: '60%',
-    height: 100,
-    padding: 10,
-  },
-  cardContent: {
-    backgroundColor: 'transparent',
-    width: '39%',
-    height: 100,
-    padding: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  purpleCard: {
-    backgroundColor: CardColors.purple,
-    width: '100%', // Required to make it work on Android
-    height: 100, //Required to make it work on Android
-    paddingLeft: 15,
-    paddingRight: 15,
-  },
-  pinkCard: {
-    backgroundColor: CardColors.pink,
-    width: '100%',
-    height: 100,
-    paddingLeft: 15,
-    paddingRight: 15,
-  },
-  orangeCard: {
-    backgroundColor: CardColors.orange,
-    width: '100%',
-    height: 100,
-    paddingLeft: 15,
-    paddingRight: 15,
-  },
-  greenCard: {
-    backgroundColor: CardColors.green,
-    width: '100%',
-    height: 100,
-    paddingLeft: 15,
-    paddingRight: 15,
-  },
-  yellowCard: {
-    backgroundColor: CardColors.yellow,
-    width: '100%',
-    height: 100,
-    paddingLeft: 15,
-    paddingRight: 15,
-  },
-  blueCard: {
-    backgroundColor: CardColors.blue,
-    width: '100%',
-    height: 100,
-    paddingLeft: 15,
-    paddingRight: 15,
-  },
-});
+export default profile;

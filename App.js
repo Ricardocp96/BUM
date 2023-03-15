@@ -5,10 +5,11 @@ import { StyleSheet, Text, View } from 'react-native';
 import Login from './Screens /Login'
 import homescreen from './Screens /homescreen';
 import register from './Screens /Rejister';
+import treatment from './Components/treatment'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ThemeProvider } from "react-native-rapi-ui";
-import Mood from './Screens /Mood'
+
 
 const Stack = createNativeStackNavigator();
 
@@ -42,7 +43,7 @@ screenOptions={globalScreen}>
 <Stack.Screen     name = "Login" component={Login} />
 <Stack.Screen     name = "Home" component={homescreen} />
 <Stack.Screen     name = "Register" component={register}/>
-<Stack.Screen     name ="Mood" component ={Mood}/>
+<Stack.Screen     name ="treatment" component ={treatment}/>
 </Stack.Navigator>
 
 </ThemeProvider>
