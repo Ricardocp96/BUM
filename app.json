@@ -23,7 +23,7 @@
       "runtimeVersion": {
         "policy": "sdkVersion"
       },
-      "bundleIdentifier": "com.ricardo96.bum"
+      "bundleIdentifier": "com.ricardo777.bum"
     },
     "android": {
       "package": "com.ricardo96.bum",

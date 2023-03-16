@@ -5,7 +5,7 @@ import {View, SafeAreaView, Text, StyleSheet} from 'react-native';
 import dashboard from '../Components/dashboard';
 import Mood from '../Components/Mood';
 
-import journal from '../Components/journal';
+import journal from './score';
 import profile from '../Components/profile';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';

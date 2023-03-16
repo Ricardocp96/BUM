@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DropDownPicker from 'react-native-dropdown-picker'
 import axios from 'axios';
 import Constants from 'expo-constants';
-
+import { useHeaderHeight } from '@react-navigation/elements'
 import { Logs } from 'expo'
 import {
     ScrollView,
@@ -32,9 +32,11 @@ import {
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const [pickerValue, setPickerValue] = React.useState(null);
+    const height = useHeaderHeight();
     const items = [
         { label: 'Adult', value: 'STD' },
         { label: 'Student', value: 'TEE' },
+      
        
     ];
     Logs.enableExpoCliLogging()
@@ -74,7 +76,10 @@ import {
       
     
   return (
-    <KeyboardAvoidingView behavior="height" enabled style={{ flex: 1 }}>
+    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    keyboardVerticalOffset={height + 47}
+    style={{ flex: 1 }}
+  >
       <Layout>
         <ScrollView
           contentContainerStyle={{
