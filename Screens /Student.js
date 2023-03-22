@@ -21,61 +21,43 @@ import {
   themeColor,
 } from "react-native-rapi-ui";
 
-export default function ({ navigation }) {
+export default function ({ route }) {
   const { isDarkmode, setTheme } = useTheme();
-  const [mobile, setNumber] = useState("");
-  const [uname, setNames] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmpassword, setconfirmPassword] = useState("");
+  const [grade, setGrade] = useState("");
+  const [teacher, setTeacher] = useState("");
   const [loading, setLoading] = useState(false);
-  const [pickerValue, setPickerValue] = React.useState(null);
+  const [school, setSchool] = useState(false);
  
-  const [selectedValue, setSelectedValue] = useState(null);
-
-  const items = [
-    { label: 'Adult', value: 'adult' },
-    { label: 'Student', value: 'student' },
+  const mobile = route.params.param1
+  const uname= route.params.param2
+  const pass = route.params.param3
+  const confirm = route.params.param4
   
-   
-];
-
-function handlePickerChange(value) {
-  setSelectedValue(value);
-}
-
-async function Register (){
-    // navigate to get more data and make the post request 
-
-    if (selectedValue === 'student') {
-      navigation.navigate("Student",{
-        
-        param1: mobile,
-        param2:uname,
-        param3:password,
-        param4:confirmpassword
-      }
-      
-      )
-    } else if (selectedValue === 'adult') {
 
 
-      const sender = await axios.post('http://54.197.36.210:3000/api/user/register', {
-        uname:uname,
-        mobile: mobile,
-        password:password,
-        confirmpassword:confirmpassword
+async function student(){
 
-       })
-      
-       .then(() => 
+    setLoading(true);
+    const sender = await axios.post('http://54.197.36.210:3000/api/user/student', {
+       grade:grade,
+       teacher:teacher,
+       school:school,
+       uname:uname,
+       mobile:mobile,
+       password:pass,
+       confirmpassword:confirm,
        
-       navigation.navigate("Login",{
-       
-        
+
+      })
+      .then(() => navigation.navigate("Login",{
       
-   
-       }))
-       .then(() => {
+      
+     
+  
+      }))
+
+
+      .then(() => {
         //Success
         
         if(!sender) 
@@ -86,13 +68,16 @@ async function Register (){
       .catch((error) => {
         //Error
         //const message= "something went wrong try again"
-        console.log(error)
         setLoading(false);
         alert(JSON.stringify("something went wrong try again"));
+   
       });
-    }
 
-};
+}
+
+
+
+
   return (
     <KeyboardAvoidingView behavior="height" enabled style={{ flex: 1 }}>
       <Layout>
@@ -134,7 +119,7 @@ async function Register (){
                 padding: 30,
               }}
             >
-              登记
+              学生 🧑‍🎓
 
 
 
@@ -143,70 +128,54 @@ async function Register (){
             <Section style={{ marginHorizontal: -18, marginTop: 20 }}>
             <SectionContent>
                 <View>
-                    <Text style={{ marginBottom: 10 }}>选择</Text>
-                    <Picker
-                        items={items}
                     
-                        placeholder="选择账户类型"
-                        onValueChange={handlePickerChange}
-                        value={selectedValue}
-                    />
+                    
                 </View>
             </SectionContent>
         </Section>
           
 
-            <Text>电话</Text>
+            <Text>年级</Text>
             <TextInput
               containerStyle={{ marginTop: 15 }}
-              placeholder="电话号码"
-              value={mobile}
+              placeholder="请输入你的年级"
+              value={grade}
               autoCapitalize="none"
               autoCompleteType="off"
               autoCorrect={false}
-              keyboardType="number-address"
-              onChangeText={(text) => setNumber(text)}
+              keyboardType="email-address"
+              onChangeText={(text) => setGrade(text)}
             />
 
-<Text>姓名</Text>
-            <TextInput
-              containerStyle={{ marginTop: 15 }}
-              placeholder="请输入姓名"
-              value={uname}
-              autoCapitalize="none"
-              autoCompleteType="off"
-              autoCorrect={false}
-              keyboardType="number-address"
-              onChangeText={(text) => setNames(text)}
-            />
+
 
 
 
           
-                 <Text style={{ marginTop: 15 }}>密码</Text>
+                 <Text style={{ marginTop: 15 }}>老师的名字</Text>
             <TextInput
               containerStyle={{ marginTop: 15 }}
-              placeholder="请输入您的密码"
-              value={password}
+              placeholder="请输入您的老师姓名"
+              value={teacher}
               autoCapitalize="none"
               autoCompleteType="off"
               autoCorrect={false}
               secureTextEntry={true}
-              onChangeText={(text) => setPassword(text)}
+              onChangeText={(text) => setTeacher(text)}
             />
-                   <Text style={{ marginTop: 15 }}>重复你的密码</Text>
+                   <Text style={{ marginTop: 15 }}> 学校</Text>
             <TextInput
               containerStyle={{ marginTop: 15 }}
-              placeholder="请输入您的密码"
-              value={confirmpassword}
+              placeholder="请输入您的学校名称"
+              value={school}
               autoCapitalize="none"
               autoCompleteType="off"
               autoCorrect={false}
               secureTextEntry={true}
-              onChangeText={(text) => setconfirmPassword(text)}
+              onChangeText={(text) => setSchool(text)}
             />
             <Button
-              text={loading ? "Loading" : "创建账户"}
+              text={loading ? "Loading" : "Create an account"}
               onPress={() => {
                Register();
               }}
@@ -224,7 +193,7 @@ async function Register (){
                 justifyContent: "center",
               }}
             >
-              <Text size="md">你有没有账号?</Text>
+              <Text size="md">Already have an account?</Text>
               <TouchableOpacity
                 onPress={() => {
                   navigation.navigate("Login");
@@ -237,7 +206,7 @@ async function Register (){
                     marginLeft: 5,
                   }}
                 >
-                  在此登录
+                  Login here
                 </Text>
               </TouchableOpacity>
             </View>
@@ -271,5 +240,3 @@ async function Register (){
     </KeyboardAvoidingView>
   );
                 }
-
-              

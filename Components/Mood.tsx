@@ -22,7 +22,7 @@ export default function ProfileScreen() {
   const [breastfeeding, setBreastfeeding] = useState(false);
   const [race, setRace] = useState("");
   const [text, setText] = useState('');
-
+  const [inputValue, setInputValue] = useState("");
  // custom dialog with text input
  function  myDialog(){
   

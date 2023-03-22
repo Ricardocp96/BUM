@@ -9,8 +9,9 @@ import treatment from './Components/treatment'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ThemeProvider } from "react-native-rapi-ui";
-
-
+import selection from './Screens /Account_selection'
+import slider from './Components/Carousel'
+import student from './Screens /Student'
 const Stack = createNativeStackNavigator();
 
 
@@ -44,6 +45,8 @@ screenOptions={globalScreen}>
 <Stack.Screen     name = "Home" component={homescreen} />
 <Stack.Screen     name = "Register" component={register}/>
 <Stack.Screen     name ="treatment" component ={treatment}/>
+<Stack.Screen     name= "Accounts" component={selection} />
+<Stack.Screen     name="Student"   component={student}/>
 </Stack.Navigator>
 
 </ThemeProvider>

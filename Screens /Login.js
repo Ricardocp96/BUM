@@ -120,26 +120,27 @@ import {
               }}
               size="h3"
             >
-              Login
+              登录
             </Text>
             <Section style={{ marginHorizontal: -18, marginTop: 20 }}>
             <SectionContent>
                 <View>
-                    <Text style={{ marginBottom: 10 }}>Picker</Text>
+                    <Text style={{ marginBottom: 10 }}>
+选择</Text>
                     <Picker
                         items={items}
                         value={pickerValue}
-                        placeholder="choose Account type"
+                        placeholder="选择账户类型"
                         onValueChange={(val) => setPickerValue(val)}
                     />
                 </View>
             </SectionContent>
         </Section>
           
-            <Text>Phone number</Text>
+            <Text>电话</Text>
             <TextInput
               containerStyle={{ marginTop: 15 }}
-              placeholder="Phone number "
+              placeholder="电话号码"
               value={mobile}
               autoCapitalize="none"
               autoCompleteType="off"
@@ -148,10 +149,10 @@ import {
               onChangeText={(text) => setPhone(text)}
             />
 
-            <Text style={{ marginTop: 15 }}>Password</Text>
+            <Text style={{ marginTop: 15 }}>密码</Text>
             <TextInput
               containerStyle={{ marginTop: 15 }}
-              placeholder="Enter your password"
+              placeholder="请输入您的密码"
               value={password}
               autoCapitalize="none"
               autoCompleteType="off"
@@ -160,7 +161,7 @@ import {
               onChangeText={(text) => setPassword(text)}
             />
             <Button
-              text={loading ? "Loading" : "Continue"}
+              text={loading ? "Loading" : "继续"}
               onPress={() => {
                  //auth from server side 
                 
@@ -184,7 +185,7 @@ import {
                 justifyContent: "center",
               }}
             >
-              <Text size="md">Don't have an account?</Text>
+              <Text size="md">没有帐户？</Text>
               <TouchableOpacity
                 onPress={() => {
                 
@@ -199,7 +200,7 @@ import {
                     marginLeft: 5,
                   }}
                 >
-                  Register here
+                  在这里注册
                 </Text>
               </TouchableOpacity>
             </View>
@@ -217,7 +218,7 @@ import {
                 }}
               >
                 <Text size="md" fontWeight="bold">
-                  Forget password
+                忘记密码
                 </Text>
               </TouchableOpacity>
             </View>
@@ -241,7 +242,7 @@ import {
                     marginLeft: 5,
                   }}
                 >
-                  {isDarkmode ? "☀️ light theme" : "🌑 dark theme"}
+                  {isDarkmode ? "☀️ 轻主题" : "🌑 深色主题"}
                 </Text>
               </TouchableOpacity>
             </View>
