@@ -7,7 +7,7 @@ import {
   KeyboardAvoidingView,
   Image,
 } from "react-native";
-
+import { useHeaderHeight } from '@react-navigation/elements'
 import axios from 'axios';
 import {
   Layout,
@@ -31,10 +31,10 @@ export default function ({ navigation }) {
   const [pickerValue, setPickerValue] = React.useState(null);
  
   const [selectedValue, setSelectedValue] = useState(null);
-
+  const height = useHeaderHeight();
   const items = [
-    { label: 'Adult', value: 'adult' },
-    { label: 'Student', value: 'student' },
+    { label: '成人', value: 'adult' },
+    { label: '学生', value: 'student' },
   
    
 ];
@@ -94,7 +94,12 @@ async function Register (){
 
 };
   return (
-    <KeyboardAvoidingView behavior="height" enabled style={{ flex: 1 }}>
+    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    keyboardVerticalOffset={height + 47}
+    style={{ flex: 1 }}
+    
+   
+    >
       <Layout>
         <ScrollView
           contentContainerStyle={{
@@ -261,7 +266,7 @@ async function Register (){
                     marginLeft: 5,
                   }}
                 >
-                  {isDarkmode ? "☀️ light theme" : "🌑 dark theme"}
+                  {isDarkmode ? "☀️ 轻主题" : "🌑 深色主题"}
                 </Text>
               </TouchableOpacity>
             </View>

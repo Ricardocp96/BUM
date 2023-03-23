@@ -28,17 +28,17 @@ console.log(route.params.params.mobile)
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
 
-            if (route.name === 'score') {
+            if (route.name === '情绪') {
               iconName = focused
-                ? 'star'
-                : 'star';
+                ? 'body'
+                : 'body';
       
-            } else if (route.name === 'Mood') {
-              iconName = focused ?'body' : 'body';
-            }else if (route.name === 'Analytics') {
+            } else if (route.name === '分数') {
+              iconName = focused ? 'star' : 'star';
+            }else if (route.name === '分析') {
               iconName = focused ? 'analytics-outline' : 'analytics-outline';
             }
-          else if (route.name === 'Help') {
+          else if (route.name === '帮') {
             iconName = focused ? 'ios-chatbubbles' : 'ios-chatbubbles';
           }
 
@@ -50,24 +50,24 @@ console.log(route.params.params.mobile)
         })}
       >
 
-        <Tab.Screen name="score"
+        <Tab.Screen name="情绪"
          
-         component={score}
+         component={Mood}
         
         
         />
         <Tab.Screen 
-        name="Mood" 
-        component={Mood}
+        name="分数" 
+        component={score}
     
       
         />
      
-       <Tab.Screen name="Analytics"   component={profile}
+       <Tab.Screen name="分析"   component={profile}
      
        
        />
-       <Tab.Screen name="Help"   component={dashboard}
+       <Tab.Screen name="帮"   component={dashboard}
     
        />
        

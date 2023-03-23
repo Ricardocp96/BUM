@@ -7,7 +7,7 @@ import {
   KeyboardAvoidingView,
   Image,
 } from "react-native";
-
+import { useHeaderHeight } from '@react-navigation/elements'
 import axios from 'axios';
 import {
   Layout,
@@ -27,7 +27,7 @@ export default function ({ route }) {
   const [teacher, setTeacher] = useState("");
   const [loading, setLoading] = useState(false);
   const [school, setSchool] = useState(false);
- 
+  const height = useHeaderHeight();
   const mobile = route.params.param1
   const uname= route.params.param2
   const pass = route.params.param3
@@ -79,7 +79,13 @@ async function student(){
 
 
   return (
-    <KeyboardAvoidingView behavior="height" enabled style={{ flex: 1 }}>
+    <KeyboardAvoidingView 
+    
+    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    keyboardVerticalOffset={height + 47}
+    style={{ flex: 1 }}
+    
+    >
       <Layout>
         <ScrollView
           contentContainerStyle={{
@@ -175,7 +181,7 @@ async function student(){
               onChangeText={(text) => setSchool(text)}
             />
             <Button
-              text={loading ? "Loading" : "Create an account"}
+              text={loading ? "Loading" : "创建账户"}
               onPress={() => {
                Register();
               }}
@@ -193,7 +199,7 @@ async function student(){
                 justifyContent: "center",
               }}
             >
-              <Text size="md">Already have an account?</Text>
+              <Text size="md">你有没有账号?</Text>
               <TouchableOpacity
                 onPress={() => {
                   navigation.navigate("Login");
@@ -206,7 +212,7 @@ async function student(){
                     marginLeft: 5,
                   }}
                 >
-                  Login here
+                  登录
                 </Text>
               </TouchableOpacity>
             </View>
@@ -230,7 +236,7 @@ async function student(){
                     marginLeft: 5,
                   }}
                 >
-                  {isDarkmode ? "☀️ light theme" : "🌑 dark theme"}
+                  {isDarkmode ? "☀️ 轻主题" : "🌑 深色主题"}
                 </Text>
               </TouchableOpacity>
             </View>

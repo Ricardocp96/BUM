@@ -34,8 +34,8 @@ import {
     const [pickerValue, setPickerValue] = React.useState(null);
     const height = useHeaderHeight();
     const items = [
-        { label: 'Adult', value: 'STD' },
-        { label: 'Student', value: 'TEE' },
+        { label: '成人', value: 'STD' },
+        { label: '学生', value: 'TEE' },
       
        
     ];

@@ -2,57 +2,10 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, ScrollView,  Image,TouchableOpacity,Alert  } from "react-native";
 import { Button, TextInput } from "react-native-paper";
 import { Dialog } from 'react-native-simple-dialogs';
-
+import DialogInput from 'react-native-dialog-input';
 
 export default function ProfileScreen() {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [previousMentalHealth, setPreviousMentalHealth] = useState("");
-  const [babyDob, setBabyDOB] = useState("");
-  const [birthExperience, setBirthExperience] = useState("");
-  const [partner, setPartner] = useState(false);
-  const [supportNetwork, setSupportNetwork] = useState(false);
-  const [immediateSupport, setImmediateSupport] = useState({
-    supportName: "",
-    supportEmail: "",
-    supportPhone: "",
-  });
-  const [destressors, setDestressors] = useState([]);
-  const [socioeconomicStatus, setSocioeconomicStatus] = useState("");
-  const [breastfeeding, setBreastfeeding] = useState(false);
-  const [race, setRace] = useState("");
-  const [text, setText] = useState('');
-  const [inputValue, setInputValue] = useState("");
- // custom dialog with text input
- function  myDialog(){
-  
-  <Dialog
-      visible={this.state.dialogVisible}
-      title="Custom Dialog"
-      onTouchOutside={() => this.setState({dialogVisible: false})} >
-      <View>
-      <TextInput
-             
-              placeholder="Phone number "
-              
-              autoCapitalize="none"
-             
-              autoCorrect={false}
-              keyboardType="email-address"
-       
-            />
-      </View>
-  </Dialog>
-    
-  }
 
-
-
-
-
- 
- 
- 
 
   return (
     
@@ -63,16 +16,18 @@ export default function ProfileScreen() {
         contentContainerStyle={styles.contentContainer}
       >
         <View >
-          <Text style={styles.getStartedText}>How do you feel </Text>
+          <Text style={styles.getStartedText}>你好👋</Text>
         
 
       
-
+          
 
 <TouchableOpacity   onPress={() => {
                 //auth from server side 
+                
                 const createTwoButtonAlert = () =>
-                Alert.alert('你现在感到难过', '提交你的心情进行分析', [
+                
+                Alert.alert('你目前感觉中立', '提交你的心情进行分析', [
                   {
                     text: 'Cancel',
                     onPress: () => console.log('Cancel Pressed'),
@@ -80,11 +35,12 @@ export default function ProfileScreen() {
                   },
                   {text: 'OK', onPress: () => console.log('OK Pressed')},
                 ]);
-
+              
                 createTwoButtonAlert()
+                
              }} >
-
              
+            
           <Image 
               resizeMode="contain"
               style={{
@@ -183,27 +139,27 @@ onPress={() => {
             <Text  style={{
                 marginLeft:80,
                 transform: [{ translateY: -550, }]
-              }}   >Very Good </Text>
+              }}   >非常好</Text>
 
 <Text  style={{
                 marginLeft:280,
                 transform: [{ translateY: -570, }]
-              }}   >Very Sad </Text>
+              }}   >很伤心</Text>
 
 <Text  style={{
                 marginLeft:355,
                 transform: [{ translateY: -435, }]
-              }}   > Sad </Text>
+              }}   > 伤心 </Text>
 
 <Text  style={{
                 marginLeft:35,
                 transform: [{ translateY: -440, }]
-              }}   >Happy </Text>     
+              }}   >快乐 </Text>     
 
 <Text  style={{
                 marginLeft:180,
                 transform: [{ translateY: -365, }]
-              }}   >Neutral </Text>     
+              }}   >一般 </Text>     
 
 <TouchableOpacity
 
