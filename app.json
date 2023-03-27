@@ -2,12 +2,12 @@
   "expo": {
     "name": "Bumou",
     "slug": "bum",
-    "version": "1.2.5",
+    "version": "1.2.6",
     "orientation": "portrait",
-    "icon": "./assets/small.png",
+    "icon": "./assets/smbg.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/newlogo.png",
+      "image": "./assets/smbg.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

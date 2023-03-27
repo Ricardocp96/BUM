@@ -59,7 +59,7 @@ async function Register (){
     } else if (selectedValue === 'adult') {
 
 
-      const sender = await axios.post('http://54.197.36.210:3000/api/user/register', {
+      const sender = await axios.post('http://54.197.36.210:3000/api/user/register/' ,{
         uname:uname,
         mobile: mobile,
         password:password,

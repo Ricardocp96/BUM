@@ -20,9 +20,9 @@ import {
 
 const profile =() =>{
   const chartConfig = {
-    backgroundGradientFrom: "#1E2923",
+    backgroundGradientFrom: "#d1d9e6",
     backgroundGradientFromOpacity: 0,
-    backgroundGradientTo: "#08130D",
+    backgroundGradientTo: "#d1d9e6",
     backgroundGradientToOpacity: 0.5,
     color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
     strokeWidth: 2, // optional, default 3
@@ -59,9 +59,9 @@ const profile =() =>{
     yAxisSuffix="k"
     yAxisInterval={1} // optional, defaults to 1
     chartConfig={{
-      backgroundColor: "#e26a00",
-      backgroundGradientFrom: "#fb8c00",
-      backgroundGradientTo: "#ffa726",
+      backgroundColor: "#d1d9e6",
+      backgroundGradientFrom: "#4784e6",
+      backgroundGradientTo: "#4784e6",
       decimalPlaces: 2, // optional, defaults to 2dp
       color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
       labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
