@@ -21,7 +21,7 @@
     "ios": {
       "supportsTablet": true,
       "runtimeVersion": {
-        "policy": "appVersion"
+        "policy": "nativeVersion"
       }
     },
     "android": {
